@@ -8,6 +8,7 @@
 <meta property="og:title" content="Venkata Manohar Goplar | Embedded & IoT Engineer">
 <meta property="og:description" content="Firmware, MQTT telemetry, greenhouse automation, edge AI and robotics projects.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://venkatamanohar369.github.io/user.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%236D3FD1%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-size=%2728%27 font-family=%27Arial%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27white%27%3EVM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,28 +105,71 @@ footer a{color:var(--lav);font-weight:700}
 footer p{margin:.3rem 0}
 footer small{color:#B7A9E8}
 
+/* Availability badge */
+.dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:#86EFAC;margin-right:.55rem;box-shadow:0 0 0 0 rgba(134,239,172,.6)}
+@media (prefers-reduced-motion:no-preference){.dot{animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 .6rem rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}}
+
+/* Highlights strip */
+.stats{position:relative;z-index:3;margin-top:-2.6rem;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #E3DAFF;border-radius:18px;box-shadow:0 2px 4px rgba(109,63,209,.06),0 14px 30px -10px rgba(109,63,209,.3),0 40px 60px -30px rgba(36,16,79,.3)}
+.stats div{padding:1.2rem 1rem;text-align:center;border-right:1px solid #EEE8FF}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:800 2rem/1.1 var(--display);color:var(--violet)}
+.stats span{font-size:.9rem;color:var(--muted)}
+
+/* Sticky nav (appears after scrolling) and skip link */
+.stick{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(21,10,51,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transform:translateY(-100%);visibility:hidden;transition:transform .3s,visibility .3s}
+.stick.on{transform:none;visibility:visible}
+.stick .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.3rem 1.2rem;padding-top:.7rem;padding-bottom:.7rem}
+.stick .mark{font:800 .95rem var(--display);color:#fff;text-decoration:none;letter-spacing:.02em}
+.stick nav{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem}
+.stick nav a{color:#DCD2FF;text-decoration:none;font:500 .9rem var(--body)}
+.stick nav a:hover{color:#fff;text-decoration:underline}
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--plum);padding:.6rem 1rem;z-index:100;font-weight:700}
+.skip:focus{left:.5rem;top:.5rem}
+section{scroll-margin-top:4rem}
+
+/* Scroll reveal (added by script, so content is visible without it) */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* Education logos */
+.edu-list{list-style:none;padding:0 !important;margin:0}
+.edu-list li{display:flex;gap:1rem;align-items:center;margin-bottom:1.2rem}
+.edu-logo{flex:none;width:68px;height:68px;object-fit:contain;background:#fff;border:1px solid #E3DAFF;border-radius:14px;padding:6px;box-shadow:0 10px 18px -10px rgba(36,16,79,.45)}
+.links a[href*="youtu"]::before{content:"\25B6\00a0";font-size:.8em}
+.copy{margin-top:1.5rem !important}
+
 @media (max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid #EEE8FF}
   #gl{width:100%;opacity:.45}
   .hero-body{padding-top:2.5rem;padding-bottom:3.5rem}
   .project,.two{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tilt,.ph,.btn{transition:none}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Venkata Manohar Goplar","jobTitle":"Embedded Systems and IoT Engineer","url":"https://venkatamanohar369.github.io","address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},"sameAs":["https://github.com/Venkatamanohar369","https://www.linkedin.com/in/venkata-manohar-goplar"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"ACE Engineering College"},{"@type":"EducationalOrganization","name":"Mahaveer Institute of Science and Technology"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#projects">Skip to projects</a>
+<div class="stick" id="stick"><div class="wrap"><a class="mark" href="#">VM · GOPLAR</a>
+  <nav aria-label="Quick links"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></div>
 
 <header class="hero">
   <canvas id="gl" aria-hidden="true"></canvas>
   <div class="wrap top">
     <a class="logo" href="#" aria-label="Venkata Manohar Goplar, back to top">
-      <img src="user.png" alt="Venkata Manohar Goplar" width="56" height="56" onerror="this.style.display='none';this.parentNode.classList.add('noimg')">
+      <img src="user.jpg" alt="Venkata Manohar Goplar" width="56" height="56" onerror="this.style.display='none';this.parentNode.classList.add('noimg')">
     </a>
     <nav aria-label="Sections">
       <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
   </div>
   <div class="wrap hero-body">
-    <p class="chip-tag">Embedded · IoT · Robotics</p>
+    <p class="chip-tag"><span class="dot"></span>Open to work · Embedded, IoT &amp; Robotics · Immediate joining</p>
     <h1>Venkata Manohar Goplar</h1>
     <p class="lead">I build embedded systems that talk to the cloud: firmware, MQTT telemetry and small robots.</p>
     <p class="sub">Hyderabad. B.Tech CSE (IoT) student with three industry internships. Available for immediate joining.</p>
@@ -136,6 +180,15 @@ footer small{color:#B7A9E8}
     </div>
   </div>
 </header>
+
+<div class="wrap">
+  <div class="stats" aria-label="Highlights">
+    <div><b>3</b><span>Industry internships</span></div>
+    <div><b>4</b><span>Hardware and IoT projects</span></div>
+    <div><b>8.58</b><span>B.Tech CGPA</span></div>
+    <div><b>5</b><span>Certifications</span></div>
+  </div>
+</div>
 
 <main>
 <section id="projects">
@@ -157,7 +210,7 @@ footer small{color:#B7A9E8}
         <p class="todo">Add: number of nodes, sensors used, and one result such as message rate or RPC response time.</p>
         <p class="links"><!-- <a href="PASTE_REPO_URL" target="_blank" rel="noopener">GitHub repo</a> --><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
       </div>
-      <div class="stage"><div class="ph tilt-el" role="img" aria-label="Placeholder for architecture diagram and dashboard screenshot">Add your architecture diagram (nodes → broker → ThingsBoard) and a dashboard screenshot</div></div>
+      <div class="stage"><img class="tilt tilt-el" src="assets/emertxe.jpg" alt="Smart Factory Monitoring project: system overview and ThingsBoard dashboard" loading="lazy" onerror="this.style.display='none'"></div>
     </article>
 
     <article class="panel project">
@@ -190,7 +243,7 @@ footer small{color:#B7A9E8}
           <li>Wireless motor control through an L298N driver for remote monitoring.</li>
            </ul>
         <p class="todo">Add: video range, frame rate, battery life, and one problem you debugged.</p>
-        <p class="links"><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a></p>
+        <p class="links"><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a><a href="https://youtu.be/9W-vfZcfwpw" target="_blank" rel="noopener">Demo video</a></p>
       </div>
       <div class="stage"><img class="tilt tilt-el" src="assets/esp32-cam-robot.jpg" alt="Project poster for the ESP32-CAM robot with PIR and ultrasonic sensors and a web interface with live stream and drive controls" width="480" height="320" loading="lazy"></div>
     </article>
@@ -206,7 +259,7 @@ footer small{color:#B7A9E8}
           <li>The NodeMCU sends an email alert over SMTP so the system can be monitored remotely.</li>
           <li>Built on a single board with an LCD display, so the hardware is easy to see and demonstrate.</li>
       </ul>
-        <p class="links"><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a></p>
+        <p class="links"><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a><a href="https://www.youtube.com/shorts/PW4oKdwcaw4" target="_blank" rel="noopener">Demo video</a></p>
       </div>
       <div class="stage"><img class="tilt tilt-el" src="assets/ir-obstacle.jpg" alt="Project poster for IR obstacle detection with email notifications, showing the Arduino, NodeMCU, LCD and IR sensors on a board" width="320" height="480" loading="lazy"></div>
     </article>
@@ -268,9 +321,9 @@ footer small{color:#B7A9E8}
   <div class="wrap two">
     <div class="panel">
       <h2>Education</h2>
-      <ul>
-        <li><strong>B.Tech, Computer Science and Engineering (IoT)</strong><br>ACE Engineering College, Ghatkesar, Hyderabad<br>2025 – present. CGPA 8.58 / 10 (lateral entry)</li>
-        <li><strong>Diploma, Electronics and Communication Engineering</strong><br>Mahaveer Institute of Science and Technology<br>2022 – 2025. CGPA 8.03 / 10</li>
+      <ul class="edu-list">
+        <li><img class="edu-logo" src="assets/aceglogo.jpg" alt="ACE Engineering College logo" width="68" height="68" onerror="this.style.display='none'"><div><strong>B.Tech, Computer Science and Engineering (IoT)</strong><br>ACE Engineering College, Ghatkesar, Hyderabad<br>2025 – present. CGPA 8.58 / 10 (lateral entry)</div></li>
+        <li><img class="edu-logo" src="assets/mistlogo.jpg" alt="Mahaveer Institute of Science and Technology logo" width="68" height="68" onerror="this.style.display='none'"><div><strong>Diploma, Electronics and Communication Engineering</strong><br>Mahaveer Institute of Science and Technology<br>2022 – 2025. CGPA 8.03 / 10</div></li>
       </ul>
     </div>
     <div class="panel">
@@ -293,7 +346,8 @@ footer small{color:#B7A9E8}
     <p>I am looking for embedded, IoT and robotics roles and can join immediately.</p>
     <p><a href="mailto:venkatamanohar@gmail.com">venkatamanohar@gmail.com</a></p>
     <p><a href="https://github.com/Venkatamanohar369" target="_blank" rel="noopener">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/venkata-manohar-goplar" target="_blank" rel="noopener">LinkedIn</a></p>
-    <p><small>Hyderabad, Telangana, India</small></p>
+    <p class="btns" style="margin-top:1.2rem"><a class="btn fill" href="mailto:venkatamanohar@gmail.com">Email me</a><a class="btn" href="resume.pdf" download>Download resume</a></p>
+    <p class="copy"><small>Hyderabad, Telangana, India &nbsp;·&nbsp; © 2026 Venkata Manohar Goplar</small></p>
   </div>
 </footer>
 
@@ -311,6 +365,17 @@ footer small{color:#B7A9E8}
     });
     st.addEventListener('pointerleave',function(){el.style.setProperty('--ry','0deg');el.style.setProperty('--rx','0deg');});
   });
+})();
+
+/* Sticky nav and scroll reveal */
+(function(){
+  var st=document.getElementById('stick');
+  function chk(){st.classList.toggle('on',window.scrollY>420);}
+  window.addEventListener('scroll',chk,{passive:true});chk();
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=document.querySelectorAll('.panel');
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+  els.forEach(function(e){e.classList.add('rv');io.observe(e);});
 })();
 
 /* Hero: 3D wafer with a floating chip */
