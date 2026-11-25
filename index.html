@@ -30,6 +30,8 @@ a{color:inherit}
 #gl{position:absolute;right:0;top:0;width:58%;height:100%;display:block}
 .top{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1.5rem;padding-top:1.4rem;padding-bottom:1.4rem}
 .logo{font:800 1.05rem var(--display);letter-spacing:.02em;text-decoration:none}
+.logo img{display:block;width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.45),0 6px 16px rgba(0,0,0,.35);transition:transform .2s}
+.logo:hover img{transform:scale(1.06)}
 .top nav{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem}
 .top nav a{text-decoration:none;font:500 .95rem var(--body);color:#DCD2FF}
 .top nav a:hover{color:#fff;text-decoration:underline}
@@ -107,7 +109,9 @@ footer small{color:#B7A9E8}
 <header class="hero">
   <canvas id="gl" aria-hidden="true"></canvas>
   <div class="wrap top">
-    <a class="logo" href="#">VMG</a>
+    <a class="logo" href="#" aria-label="Venkata Manohar Goplar, back to top">
+  <img src="user.png" alt="Venkata Manohar Goplar" width="56" height="56">
+</a>
     <nav aria-label="Sections">
       <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
