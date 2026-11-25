@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Venkata Manohar Goplar | Embedded & IoT Engineer</title>
 <meta name="description" content="Embedded Systems and IoT engineer in Hyderabad. Firmware, MQTT telemetry, greenhouse automation, edge AI and robotics projects.">
+<meta property="og:title" content="Venkata Manohar Goplar | Embedded & IoT Engineer">
+<meta property="og:description" content="Firmware, MQTT telemetry, greenhouse automation, edge AI and robotics projects.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%236D3FD1%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-size=%2728%27 font-family=%27Arial%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27white%27%3EVM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,12 +36,13 @@ a{color:inherit}
 .logo{font:800 1.05rem var(--display);letter-spacing:.02em;text-decoration:none}
 .logo img{display:block;width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.45),0 6px 16px rgba(0,0,0,.35);transition:transform .2s}
 .logo:hover img{transform:scale(1.06)}
+.logo.noimg::before{content:"VM";display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;border:3px solid #fff;background:var(--violet);color:#fff;font:800 1rem var(--display)}
 .top nav{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem}
 .top nav a{text-decoration:none;font:500 .95rem var(--body);color:#DCD2FF}
 .top nav a:hover{color:#fff;text-decoration:underline}
 .hero-body{position:relative;z-index:2;padding-top:4rem;padding-bottom:5rem}
 .chip-tag{display:inline-block;font:500 .85rem var(--mono);color:var(--lav);border:1px solid rgba(196,181,253,.4);padding:.25rem .7rem;border-radius:999px;margin:0 0 1.4rem}
-.hero h1{font:800 clamp(2.6rem,7vw,5rem)/1 var(--display);letter-spacing:-.025em;margin:0 0 1.4rem;max-width:11ch}
+.hero h1{font:800 clamp(2.6rem,7vw,5rem)/1 var(--display);letter-spacing:-.025em;margin:0 0 1.4rem;max-width:11ch;text-shadow:0 2px 20px rgba(21,10,51,.65)}
 .hero .lead{font-size:clamp(1.1rem,2.2vw,1.4rem);line-height:1.45;max-width:31rem;margin:0 0 .8rem}
 .hero .sub{color:#C9BDF2;max-width:31rem;margin:0 0 2rem}
 .btns{display:flex;flex-wrap:wrap;gap:.75rem}
@@ -68,7 +73,10 @@ h3{font:700 1.3rem/1.25 var(--display);color:var(--plum);margin:0 0 .3rem}
   background:repeating-linear-gradient(45deg,var(--mist),var(--mist) 10px,#E2DAFF 10px,#E2DAFF 20px);border:2px dashed var(--lav);
   transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out}
 .todo{background:var(--mist);border-left:4px solid var(--bright);border-radius:6px;padding:.5rem .75rem;font-size:.92rem;margin:0 0 1rem}
+/* Reminder notes are hidden on the live site. Delete the next line to show them again. */
+.todo{display:none}
 .links a{font-weight:700;margin-right:1.3rem;color:var(--violet)}
+.links:empty{display:none}
 
 /* Timeline */
 .timeline{list-style:none;margin:0;padding:0 0 0 1.5rem;border-left:3px solid var(--lav)}
@@ -110,8 +118,8 @@ footer small{color:#B7A9E8}
   <canvas id="gl" aria-hidden="true"></canvas>
   <div class="wrap top">
     <a class="logo" href="#" aria-label="Venkata Manohar Goplar, back to top">
-  <img src="user.png" alt="Venkata Manohar Goplar" width="56" height="56">
-</a>
+      <img src="user.png" alt="Venkata Manohar Goplar" width="56" height="56" onerror="this.style.display='none';this.parentNode.classList.add('noimg')">
+    </a>
     <nav aria-label="Sections">
       <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
@@ -147,7 +155,7 @@ footer small{color:#B7A9E8}
           <li>Modular embedded C firmware written with SDLC practices, so nodes are easier to scale and debug.</li>
         </ul>
         <p class="todo">Add: number of nodes, sensors used, and one result such as message rate or RPC response time.</p>
-        <p class="links"><a href="#" target="_blank" rel="noopener">GitHub repo</a><a href="#" target="_blank" rel="noopener">Demo video</a></p>
+        <p class="links"><!-- <a href="PASTE_REPO_URL" target="_blank" rel="noopener">GitHub repo</a> --><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
       </div>
       <div class="stage"><div class="ph tilt-el" role="img" aria-label="Placeholder for architecture diagram and dashboard screenshot">Add your architecture diagram (nodes → broker → ThingsBoard) and a dashboard screenshot</div></div>
     </article>
@@ -164,7 +172,7 @@ footer small{color:#B7A9E8}
           <li>Data flows from sensors over MQTT to a dashboard, then through the Blockly rule engine to the actuators.</li>
         </ul>
         <p class="todo">Add: the dashboard you used, one example rule with thresholds, and what happens if a sensor stops reporting.</p>
-        <p class="links"><a href="https://github.com/Venkatamanohar369/Smart-Greenhouse-Automation-System" target="_blank" rel="noopener">GitHub repo</a><a href="#" target="_blank" rel="noopener">Demo video</a></p>
+        <p class="links"><a href="https://github.com/Venkatamanohar369/Smart-Greenhouse-Automation-System" target="_blank" rel="noopener">GitHub repo</a><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
       </div>
       <div class="stage"><img class="tilt tilt-el" src="assets/smart-greenhouse.jpg" alt="Project poster for the Smart Greenhouse Automation System with the ESP32 controller, a Blockly rule editor and the sensor-to-actuator flow" width="480" height="269" loading="lazy"></div>
     </article>
@@ -182,7 +190,7 @@ footer small{color:#B7A9E8}
           <li>Wireless motor control through an L298N driver for remote monitoring.</li>
            </ul>
         <p class="todo">Add: video range, frame rate, battery life, and one problem you debugged.</p>
-        <p class="links"><a href="#" target="_blank" rel="noopener">Demo video</a><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a></p>
+        <p class="links"><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a></p>
       </div>
       <div class="stage"><img class="tilt tilt-el" src="assets/esp32-cam-robot.jpg" alt="Project poster for the ESP32-CAM robot with PIR and ultrasonic sensors and a web interface with live stream and drive controls" width="480" height="320" loading="lazy"></div>
     </article>
@@ -198,7 +206,7 @@ footer small{color:#B7A9E8}
           <li>The NodeMCU sends an email alert over SMTP so the system can be monitored remotely.</li>
           <li>Built on a single board with an LCD display, so the hardware is easy to see and demonstrate.</li>
       </ul>
-        <p class="links"><a href="#" target="_blank" rel="noopener">Demo video</a><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a></p>
+        <p class="links"><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a></p>
       </div>
       <div class="stage"><img class="tilt tilt-el" src="assets/ir-obstacle.jpg" alt="Project poster for IR obstacle detection with email notifications, showing the Arduino, NodeMCU, LCD and IR sensors on a board" width="320" height="480" loading="lazy"></div>
     </article>
