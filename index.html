@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Venkata Manohar Goplar | Embedded & IoT Engineer</title>
 <meta name="description" content="Embedded Systems and IoT engineer in Hyderabad. Firmware, MQTT telemetry, greenhouse automation, edge AI and robotics projects.">
+<meta name="theme-color" content="#24104F">
+<link rel="canonical" href="https://venkatamanohar369.github.io/">
 <meta property="og:title" content="Venkata Manohar Goplar | Embedded & IoT Engineer">
 <meta property="og:description" content="Firmware, MQTT telemetry, greenhouse automation, edge AI and robotics projects.">
 <meta property="og:type" content="website">
@@ -130,6 +132,22 @@ footer small{color:#B7A9E8}
 .facts b{display:block;font:500 .8rem var(--mono);color:var(--violet);margin-bottom:.15rem}
 @media (max-width:820px){.about,.about[data-shape="portrait"]{grid-template-columns:1fr}.about[data-shape="landscape"] .about-text{column-count:1}.about[data-shape="portrait"] figure{max-width:20rem}}
 
+/* Case-study layout */
+.cs{margin:0 0 1rem}
+.cs div{display:grid;grid-template-columns:5rem 1fr;gap:.8rem;padding:.55rem 0;border-top:1px solid #EEE8FF}
+.cs div:first-child{border-top:0}
+.cs dt{font:500 .8rem var(--mono);color:var(--violet);padding-top:.2rem}
+.cs dd{margin:0}
+.more{margin:0 0 1rem}
+.more summary{cursor:pointer;font-weight:700;color:var(--plum)}
+.more ul{margin:.6rem 0 0;padding-left:1.1rem}
+.badge{display:inline-block;font:500 .75rem var(--mono);background:var(--violet);color:#fff;border-radius:999px;padding:.1rem .65rem;margin-left:.6rem}
+.role{font:500 .95rem var(--mono);color:var(--lav);margin:0 0 .8rem}
+.core{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:1.4rem}
+.core b{font:500 .8rem var(--mono);color:var(--muted);margin-right:.4rem}
+.stick nav a.cta{background:var(--bright);color:#fff;padding:.2rem .85rem;border-radius:8px}
+.hero-art{background:radial-gradient(closest-side,rgba(139,92,246,.35),transparent)}
+
 /* Availability badge */
 .dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:#86EFAC;margin-right:.55rem;box-shadow:0 0 0 0 rgba(134,239,172,.6)}
 @media (prefers-reduced-motion:no-preference){.dot{animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 .6rem rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}}
@@ -199,7 +217,7 @@ section{scroll-margin-top:4rem}
 <a class="skip" href="#projects">Skip to projects</a>
 <div class="prog" id="prog"></div>
 <div class="stick" id="stick"><div class="wrap"><a class="mark" href="#" aria-label="Back to top"><img src="user.jpg" alt="" width="36" height="36" onerror="this.style.display='none'"><span>Venkata Manohar Goplar</span></a>
-  <nav aria-label="Quick links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></div>
+  <nav aria-label="Quick links"><a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a class="cta" href="#contact">Contact</a></nav></div></div>
 
 <header class="hero">
     <div class="wrap top">
@@ -207,14 +225,15 @@ section{scroll-margin-top:4rem}
       <img src="user.jpg" alt="Venkata Manohar Goplar" width="56" height="56" onerror="this.style.display='none';this.parentNode.classList.add('noimg')">
     </a>
     <nav aria-label="Sections">
-      <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      <a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
   </div>
   <div class="wrap hero-grid">
     <div class="hero-text">
     <p class="chip-tag"><span class="dot"></span>Open to internships and part-time roles · Embedded, firmware, IIoT</p>
     <h1>Venkata Manohar Goplar</h1>
-    <p class="lead">I turn sensors into live dashboards and alerts: firmware, MQTT telemetry and small robots on real hardware.</p>
+    <p class="role">Embedded Systems &amp; IoT Engineer</p>
+      <p class="lead">I turn sensors into live dashboards and alerts: firmware, MQTT telemetry and small robots on real hardware.</p>
     <p class="sub">B.Tech CSE (IoT), batch of 2028, at ACE Engineering College, Hyderabad. IIC Innovation Coordinator with four industry internships.</p>
     <div class="btns">
       <a class="btn fill" href="resume.pdf" download>Download resume</a>
@@ -238,9 +257,85 @@ section{scroll-margin-top:4rem}
     <div><b>8.58</b><span>B.Tech CGPA</span></div>
     <div><b>6</b><span>Certifications</span></div>
   </div>
+  <div class="core"><b>Core stack</b><div class="tags"><span>Embedded C/C++</span><span>ESP32</span><span>MQTT</span><span>ThingsBoard</span><span>UART · I2C · SPI</span><span>PlatformIO</span></div></div>
 </div>
 
 <main>
+
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="intro">Four working builds, strongest first. Each one shows the problem, what I built and the outcome.</p>
+
+    <article class="panel project">
+      <div>
+        <h3>ESP32-CAM Smart Surveillance Robot</h3>
+        <p class="meta">Personal project<span class="badge">Featured</span></p>
+        <p class="stack">ESP32-CAM · PIR · ultrasonic · Telegram Bot API · L298N</p>
+        <dl class="cs">
+          <div><dt>Problem</dt><dd>Add live video, alerts and drive control to a low-cost board without a second microcontroller.</dd></div>
+          <div><dt>Built</dt><dd>A surveillance robot where one ESP32-CAM streams video over Wi-Fi, sends Telegram alerts and drives the motors through an L298N.</dd></div>
+          <div><dt>Outcome</dt><dd>Live stream, image capture, human detection, distance measurement and wireless control, all from a single firmware image.</dd></div>
+        </dl>
+        <details class="more"><summary>Technical details</summary><ul><li>Captures images and sends alerts to Telegram in real time.</li><li>PIR sensor for human detection and an ultrasonic sensor for distance, with the captured image and distance shown on a web page.</li><li>Live Wi-Fi video from an ESP web server, with forward, back, left, right and stop controls in the browser.</li><li>Wireless motor control through an L298N driver for remote monitoring.</li></ul></details>
+        <!-- Add a measured result here when you have one, for example range, frame rate, message rate or battery life -->
+        <p class="links"><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a><a href="https://youtu.be/9W-vfZcfwpw" target="_blank" rel="noopener">Demo video</a></p>
+      </div>
+      <div class="stage"><img class="tilt tilt-el" src="assets/esp32-cam-robot.jpg" alt="Project poster for the ESP32-CAM robot with PIR and ultrasonic sensors and a web interface with live stream and drive controls" width="480" height="320" loading="lazy" onerror="this.style.display='none'"></div>
+    </article>
+    <article class="panel project">
+      <div>
+        <h3>Smart Greenhouse Automation System</h3>
+        <p class="meta">Personal project</p>
+        <p class="stack">ESP32 · MQTT · Google Blockly · DHT22 · soil moisture · reservoir level · OLED</p>
+        <dl class="cs">
+          <div><dt>Problem</dt><dd>Growers should be able to change automation rules without touching firmware.</dd></div>
+          <div><dt>Built</dt><dd>A no-code IoT rule engine on ESP32 and MQTT, with rules built from drag-and-drop Google Blockly blocks.</dd></div>
+          <div><dt>Outcome</dt><dd>Rules are validated, run in real time and can be saved and loaded as profiles to control a water pump and ventilation.</dd></div>
+        </dl>
+        <details class="more"><summary>Technical details</summary><ul><li>Reads temperature, humidity, soil moisture and reservoir level, with live status on an OLED display.</li><li>Controls a water pump and ventilation from the rules.</li><li>Data flows from sensors over MQTT to a dashboard, then through the Blockly rule engine to the actuators.</li></ul></details>
+        <!-- Add a measured result here when you have one, for example range, frame rate, message rate or battery life -->
+        <p class="links"><a href="https://github.com/Venkatamanohar369/Smart-Greenhouse-Automation-System" target="_blank" rel="noopener">GitHub repo</a><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
+      </div>
+      <div class="stage"><img class="tilt tilt-el" src="assets/smart-greenhouse.jpg" alt="Project poster for the Smart Greenhouse Automation System with the ESP32 controller, a Blockly rule editor and the sensor-to-actuator flow" width="480" height="269" loading="lazy" onerror="this.style.display='none'"></div>
+    </article>
+    <article class="panel project">
+      <div>
+        <h3>Smart Factory Monitoring</h3>
+        <p class="meta">Internship project at Emertxe, Mar–Apr 2026</p>
+        <p class="stack">Embedded C · PicsimLab · MQTT · ThingsBoard · RPC</p>
+        <dl class="cs">
+          <div><dt>Problem</dt><dd>See live data from several factory nodes and control them remotely.</dd></div>
+          <div><dt>Built</dt><dd>A simulated multi-node system in PicsimLab publishing MQTT telemetry to a ThingsBoard dashboard, with RPC commands sent back down to the nodes.</dd></div>
+          <div><dt>Outcome</dt><dd>Dashboard-to-node control with no manual steps, and modular embedded C firmware that cut debugging effort across nodes.</dd></div>
+        </dl>
+        <details class="more"><summary>Technical details</summary><ul><li>Multi-node monitoring simulated in PicsimLab, with nodes publishing telemetry over MQTT.</li><li>Live ThingsBoard dashboard showing data from every node in real time.</li><li>Automated device control from the dashboard using RPC commands.</li><li>Firmware structured into reusable modules following SDLC practices.</li></ul></details>
+        <!-- Add a measured result here when you have one, for example range, frame rate, message rate or battery life -->
+        <p class="links"><!-- <a href="PASTE_REPO_URL" target="_blank" rel="noopener">GitHub repo</a> --><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
+      </div>
+      <div class="stage"><img class="tilt tilt-el" src="assets/emertxe.jpg" alt="Smart Factory Monitoring project: system overview and ThingsBoard dashboard" loading="lazy" onerror="this.style.display='none'"></div>
+    </article>
+    <article class="panel project">
+      <div>
+        <h3>IR Obstacle Detection with Email Alerts</h3>
+        <p class="meta">Personal project</p>
+        <p class="stack">Arduino Uno · NodeMCU · IR sensors · LCD · SMTP</p>
+        <dl class="cs">
+          <div><dt>Problem</dt><dd>Get a remote notification when an obstacle is detected.</dd></div>
+          <div><dt>Built</dt><dd>IR sensors with an Arduino Uno and a NodeMCU, with status shown on an LCD on a single demo board.</dd></div>
+          <div><dt>Outcome</dt><dd>The NodeMCU sends an email alert over SMTP, so the system can be monitored remotely.</dd></div>
+        </dl>
+        <details class="more"><summary>Technical details</summary><ul><li>IR sensors detect an obstacle, and the Arduino Uno and NodeMCU handle detection and the alert.</li><li>Email alerts are sent over SMTP for remote monitoring.</li><li>Built on a single board with an LCD, so the hardware is easy to see and demonstrate.</li></ul></details>
+        <!-- Add a measured result here when you have one, for example range, frame rate, message rate or battery life -->
+        <p class="links"><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a><a href="https://www.youtube.com/shorts/PW4oKdwcaw4" target="_blank" rel="noopener">Demo video</a></p>
+      </div>
+      <div class="stage"><img class="tilt tilt-el" src="assets/ir-obstacle.jpg" alt="Project poster for IR obstacle detection with email notifications, showing the Arduino, NodeMCU, LCD and IR sensors on a board" width="320" height="480" loading="lazy" onerror="this.style.display='none'"></div>
+    </article>
+  </div>
+</section>
+
+
 <section id="about">
   <div class="wrap">
     <h2>About</h2>
@@ -262,83 +357,6 @@ section{scroll-margin-top:4rem}
     </div>
   </div>
 </section>
-
-<section id="projects">
-  <div class="wrap">
-    <h2>Projects</h2>
-    <p class="intro">Hardware and firmware I have built, from a simulated factory network and a no-code greenhouse controller to a camera robot that streams video and sends alerts.</p>
-
-    <article class="panel project">
-      <div>
-        <h3>Smart Factory Monitoring</h3>
-        <p class="meta">Internship project at Emertxe, Mar–Apr 2026</p>
-        <p class="stack">Embedded C · PicsimLab · MQTT · ThingsBoard</p>
-        <ul>
-          <li>Multi-node monitoring system simulated in PicsimLab, with nodes publishing telemetry over MQTT.</li>
-          <li>Live ThingsBoard dashboard showing data from every node in real time.</li>
-          <li>Automated device control from the dashboard using RPC commands.</li>
-          <li>Modular embedded C firmware written with SDLC practices, so nodes are easier to scale and debug.</li>
-        </ul>
-        <p class="todo">Add: number of nodes, sensors used, and one result such as message rate or RPC response time.</p>
-        <p class="links"><!-- <a href="PASTE_REPO_URL" target="_blank" rel="noopener">GitHub repo</a> --><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
-      </div>
-      <div class="stage"><img class="tilt tilt-el" src="assets/emertxe.jpg" alt="Smart Factory Monitoring project: system overview and ThingsBoard dashboard" loading="lazy" onerror="this.style.display='none'"></div>
-    </article>
-
-    <article class="panel project">
-      <div>
-        <h3>Smart Greenhouse Automation System</h3>
-        <p class="meta">Personal project</p>
-        <p class="stack">ESP32 · MQTT · Google Blockly · DHT22 · soil moisture · reservoir level · OLED</p>
-        <ul>
-          <li>No-code IoT rule engine that monitors greenhouse conditions and automates operations. Rules are built by dragging Blockly blocks, not writing code.</li>
-          <li>Reads temperature, humidity, soil moisture and reservoir level, with live status on an OLED display.</li>
-          <li>Controls a water pump and ventilation from the rules. Rules are validated, run in real time, and can be saved and loaded as profiles.</li>
-          <li>Data flows from sensors over MQTT to a dashboard, then through the Blockly rule engine to the actuators.</li>
-        </ul>
-        <p class="todo">Add: the dashboard you used, one example rule with thresholds, and what happens if a sensor stops reporting.</p>
-        <p class="links"><a href="https://github.com/Venkatamanohar369/Smart-Greenhouse-Automation-System" target="_blank" rel="noopener">GitHub repo</a><!-- <a href="PASTE_VIDEO_URL" target="_blank" rel="noopener">Demo video</a> --></p>
-      </div>
-      <div class="stage"><img class="tilt tilt-el" src="assets/smart-greenhouse.jpg" alt="Project poster for the Smart Greenhouse Automation System with the ESP32 controller, a Blockly rule editor and the sensor-to-actuator flow" width="480" height="269" loading="lazy"></div>
-    </article>
-
-
-    <article class="panel project">
-      <div>
-        <h3>ESP32-CAM Smart Surveillance Robot</h3>
-        <p class="meta">Personal project</p>
-        <p class="stack">ESP32-CAM · PIR · ultrasonic · Telegram Bot API · L298N</p>
-        <ul>
-          <li>Camera robot that captures images and sends alerts to Telegram in real time.</li>
-          <li>PIR sensor for human detection and an ultrasonic sensor for distance, with the captured image and distance shown on a web page.</li>
-          <li>Live Wi-Fi video from an ESP web server, with forward, back, left, right and stop controls in the browser.</li>
-          <li>Wireless motor control through an L298N driver for remote monitoring.</li>
-          <li>Everything runs in a single firmware image on one ESP32-CAM, with no second microcontroller.</li>
-           </ul>
-        <p class="todo">Add: video range, frame rate, battery life, and one problem you debugged.</p>
-        <p class="links"><a href="https://github.com/Venkatamanohar369/ESP32-CAM-Smart-Obstacle-Detection-and-Capturing-Robot" target="_blank" rel="noopener">GitHub repo</a><a href="https://youtu.be/9W-vfZcfwpw" target="_blank" rel="noopener">Demo video</a></p>
-      </div>
-      <div class="stage"><img class="tilt tilt-el" src="assets/esp32-cam-robot.jpg" alt="Project poster for the ESP32-CAM robot with PIR and ultrasonic sensors and a web interface with live stream and drive controls" width="480" height="320" loading="lazy"></div>
-    </article>
-
-
-    <article class="panel project">
-      <div>
-        <h3>IR Obstacle Detection with Email Alerts</h3>
-        <p class="meta">Personal project</p>
-        <p class="stack">Arduino Uno · NodeMCU · IR sensors · LCD · SMTP</p>
-        <ul>
-          <li>IR sensors detect an obstacle, and an Arduino Uno with a NodeMCU handle the detection and the alert.</li>
-          <li>The NodeMCU sends an email alert over SMTP so the system can be monitored remotely.</li>
-          <li>Built on a single board with an LCD display, so the hardware is easy to see and demonstrate.</li>
-      </ul>
-        <p class="links"><a href="https://github.com/Venkatamanohar369/IR-Based-Obstacle-Detection-with-Email-Notification" target="_blank" rel="noopener">GitHub repo</a><a href="https://www.youtube.com/shorts/PW4oKdwcaw4" target="_blank" rel="noopener">Demo video</a></p>
-      </div>
-      <div class="stage"><img class="tilt tilt-el" src="assets/ir-obstacle.jpg" alt="Project poster for IR obstacle detection with email notifications, showing the Arduino, NodeMCU, LCD and IR sensors on a board" width="320" height="480" loading="lazy"></div>
-    </article>
-  </div>
-</section>
-
 
 <section id="experience">
   <div class="wrap">
@@ -426,11 +444,10 @@ section{scroll-margin-top:4rem}
         <a href="https://outlook.live.com/mail/0/deeplink/compose?to=venkatamanoharan7@gmail.com&amp;subject=Hello%20Manohar" target="_blank" rel="noopener">Open in Outlook</a>
         <a href="mailto:venkatamanoharan7@gmail.com?subject=Hello%20Manohar">Default mail app</a>
         <button type="button" data-copy="venkatamanoharan7@gmail.com">Copy address</button></div></details><a class="btn" href="resume.pdf" download>Download resume</a></div>
-    <p class="copy"><small>Hyderabad, Telangana, India &nbsp;·&nbsp; © 2026 Venkata Manohar Goplar</small></p>
+    <p class="copy"><small>Hyderabad, Telangana, India &nbsp;·&nbsp; © 2026 Venkata Manohar Goplar &nbsp;·&nbsp; Last updated Nov 2026</small></p>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 /* Card tilt */
 (function(){
@@ -507,7 +524,7 @@ section{scroll-margin-top:4rem}
 })();
 
 /* Hero: 3D wafer with a floating chip */
-(function(){
+function init3d(){
   var c=document.getElementById('gl');
   if(!window.THREE||!c)return;
   var T=window.THREE,r;
@@ -574,7 +591,13 @@ section{scroll-margin-top:4rem}
     new IntersectionObserver(function(en){var v=en[0].isIntersecting;if(v&&!run&&!still){run=true;requestAnimationFrame(frame);}run=v;}).observe(c);
   }
   requestAnimationFrame(frame);
-})();
+}
+window.addEventListener('load',function(){
+  if(navigator.connection&&navigator.connection.saveData)return;
+  var sc=document.createElement('script');
+  sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  sc.onload=init3d;document.head.appendChild(sc);
+});
 </script>
 </body>
 </html>
