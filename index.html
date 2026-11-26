@@ -24,7 +24,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--body)}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--bright);outline-offset:3px}
-.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
 
 /* Hero */
 .hero{position:relative;color:#fff;overflow:hidden;min-height:38rem;
@@ -32,7 +32,9 @@ a{color:inherit}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(196,181,253,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(196,181,253,.07) 1px,transparent 1px);background-size:44px 44px;
   mask-image:linear-gradient(180deg,#000 30%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 100%)}
-#gl{position:absolute;right:0;top:0;width:58%;height:100%;display:block}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:2rem;align-items:center;padding-top:2.5rem;padding-bottom:5.5rem}
+.hero-art{position:relative;aspect-ratio:1/.92}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
 .top{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1.5rem;padding-top:1.4rem;padding-bottom:1.4rem}
 .logo{font:800 1.05rem var(--display);letter-spacing:.02em;text-decoration:none}
 .logo img{display:block;width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.45),0 6px 16px rgba(0,0,0,.35);transition:transform .2s}
@@ -43,7 +45,7 @@ a{color:inherit}
 .top nav a:hover{color:#fff;text-decoration:underline}
 .hero-body{position:relative;z-index:2;padding-top:4rem;padding-bottom:5rem}
 .chip-tag{display:inline-block;font:500 .85rem var(--mono);color:var(--lav);border:1px solid rgba(196,181,253,.4);padding:.25rem .7rem;border-radius:999px;margin:0 0 1.4rem}
-.hero h1{font:800 clamp(2.6rem,7vw,5rem)/1 var(--display);letter-spacing:-.025em;margin:0 0 1.4rem;max-width:11ch;text-shadow:0 2px 20px rgba(21,10,51,.65)}
+.hero h1{font:800 clamp(2.4rem,5.2vw,4.5rem)/1.02 var(--display);letter-spacing:-.025em;margin:0 0 1.4rem;text-shadow:0 2px 20px rgba(21,10,51,.65)}
 .hero .lead{font-size:clamp(1.1rem,2.2vw,1.4rem);line-height:1.45;max-width:31rem;margin:0 0 .8rem}
 .hero .sub{color:#C9BDF2;max-width:31rem;margin:0 0 2rem}
 .btns{display:flex;flex-wrap:wrap;gap:.75rem}
@@ -105,6 +107,29 @@ footer a{color:var(--lav);font-weight:700}
 footer p{margin:.3rem 0}
 footer small{color:#B7A9E8}
 
+/* Progress bar, active nav */
+.prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--violet),var(--lav))}
+.stick nav a.act{color:#fff;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+
+/* About: layout adapts to the image shape (set by script from the image's real size) */
+.about{display:grid;gap:2.5rem;align-items:start;grid-template-columns:minmax(0,.4fr) minmax(0,.6fr)}
+.about figure{margin:0}
+.about img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 18px 30px -14px rgba(36,16,79,.45)}
+.about[data-shape="portrait"]{grid-template-columns:minmax(0,.32fr) minmax(0,.68fr)}
+.about[data-shape="landscape"]{grid-template-columns:1fr;gap:1.8rem}
+.about[data-shape="landscape"] figure{max-width:100%}
+.about[data-shape="landscape"] .about-text{column-count:2;column-gap:2.5rem}
+.about[data-shape="landscape"] .about-text p{break-inside:avoid}
+.about[data-shape="landscape"] .facts{column-span:all}
+.about.noimg{grid-template-columns:1fr}
+.about.noimg figure{display:none}
+.pull{font:700 clamp(1.15rem,2.2vw,1.45rem)/1.4 var(--display);color:var(--plum);margin:0 0 1rem !important;padding-left:1rem;border-left:4px solid var(--bright)}
+.about-text p{margin:0 0 1rem}
+.facts{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr));gap:.8rem}
+.facts li{background:var(--mist);border-radius:12px;padding:.7rem .9rem;font-size:.95rem;line-height:1.45}
+.facts b{display:block;font:500 .8rem var(--mono);color:var(--violet);margin-bottom:.15rem}
+@media (max-width:820px){.about,.about[data-shape="portrait"]{grid-template-columns:1fr}.about[data-shape="landscape"] .about-text{column-count:1}.about[data-shape="portrait"] figure{max-width:20rem}}
+
 /* Availability badge */
 .dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:#86EFAC;margin-right:.55rem;box-shadow:0 0 0 0 rgba(134,239,172,.6)}
 @media (prefers-reduced-motion:no-preference){.dot{animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 .6rem rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}}
@@ -160,8 +185,8 @@ section{scroll-margin-top:4rem}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stats div:nth-child(2){border-right:0}
   .stats div:nth-child(-n+2){border-bottom:1px solid #EEE8FF}
-  #gl{width:100%;opacity:.45}
-  .hero-body{padding-top:2.5rem;padding-bottom:3.5rem}
+  .hero-grid{grid-template-columns:1fr;padding-bottom:4.5rem}
+  .hero-art{aspect-ratio:16/11;max-height:22rem;width:100%}
   .project,.two{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tilt,.ph,.btn{transition:none}}
@@ -172,20 +197,21 @@ section{scroll-margin-top:4rem}
 </head>
 <body>
 <a class="skip" href="#projects">Skip to projects</a>
+<div class="prog" id="prog"></div>
 <div class="stick" id="stick"><div class="wrap"><a class="mark" href="#" aria-label="Back to top"><img src="user.jpg" alt="" width="36" height="36" onerror="this.style.display='none'"><span>Venkata Manohar Goplar</span></a>
-  <nav aria-label="Quick links"><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></div>
+  <nav aria-label="Quick links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav></div></div>
 
 <header class="hero">
-  <canvas id="gl" aria-hidden="true"></canvas>
-  <div class="wrap top">
+    <div class="wrap top">
     <a class="logo" href="#" aria-label="Venkata Manohar Goplar, back to top">
       <img src="user.jpg" alt="Venkata Manohar Goplar" width="56" height="56" onerror="this.style.display='none';this.parentNode.classList.add('noimg')">
     </a>
     <nav aria-label="Sections">
-      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
   </div>
-  <div class="wrap hero-body">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
     <p class="chip-tag"><span class="dot"></span>Open to internships and part-time roles · Embedded, firmware, IIoT</p>
     <h1>Venkata Manohar Goplar</h1>
     <p class="lead">I turn sensors into live dashboards and alerts: firmware, MQTT telemetry and small robots on real hardware.</p>
@@ -193,13 +219,15 @@ section{scroll-margin-top:4rem}
     <div class="btns">
       <a class="btn fill" href="resume.pdf" download>Download resume</a>
       <details class="mailmenu up"><summary class="btn">Email me</summary><div class="menu">
-        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=venkatamanohar@gmail.com&amp;su=Hello%20Manohar" target="_blank" rel="noopener">Open in Gmail</a>
-        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=venkatamanohar@gmail.com&amp;subject=Hello%20Manohar" target="_blank" rel="noopener">Open in Outlook</a>
-        <a href="mailto:venkatamanohar@gmail.com?subject=Hello%20Manohar">Default mail app</a>
-        <button type="button" data-copy="venkatamanohar@gmail.com">Copy address</button></div></details>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=venkatamanoharan7@gmail.com&amp;su=Hello%20Manohar" target="_blank" rel="noopener">Open in Gmail</a>
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=venkatamanoharan7@gmail.com&amp;subject=Hello%20Manohar" target="_blank" rel="noopener">Open in Outlook</a>
+        <a href="mailto:venkatamanoharan7@gmail.com?subject=Hello%20Manohar">Default mail app</a>
+        <button type="button" data-copy="venkatamanoharan7@gmail.com">Copy address</button></div></details>
       <a class="btn" href="https://www.linkedin.com/in/venkata-manohar-goplar/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/Venkatamanohar369" target="_blank" rel="noopener">GitHub</a>
     </div>
+  </div>
+    <div class="hero-art"><canvas id="gl" aria-hidden="true"></canvas></div>
   </div>
 </header>
 
@@ -213,6 +241,28 @@ section{scroll-margin-top:4rem}
 </div>
 
 <main>
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="panel about" data-shape="square">
+      <figure><img src="assets/about.jpg" alt="Venkata Manohar Goplar" loading="lazy"></figure>
+      <div class="about-text">
+        <p class="pull">One ESP32-CAM. One firmware image. Live video, Telegram alerts and motor control, with no second microcontroller.</p>
+        <p>I like that kind of constraint: making small hardware do a lot. I'm Manohar, a B.Tech CSE (IoT) student at ACE Engineering College, Hyderabad. I came in through a Diploma in ECE, so I've worked on a factory floor as well as in code. I do both.</p>
+        <p>Four industry internships took me from IoT telemetry at Emertxe and RF robotics kits for Atal Tinkering Labs at EdgeFX, to capacitor manufacturing at Amcap and inverter production at Siri Power Systems. Seeing what happens after the prototype is why I write firmware with testing and production in mind.</p>
+        <p>Right now I'm the IIC Innovation Coordinator at ACE, helping students turn ideas into working prototypes.</p>
+        <ul class="facts">
+          <li><b>Based in</b>Hyderabad, India</li>
+          <li><b>Studying</b>B.Tech CSE (IoT), batch of 2028</li>
+          <li><b>Role</b>IIC Innovation Coordinator, ACE</li>
+          <li><b>Looking for</b>Embedded, firmware and IIoT internships and part-time roles</li>
+          <li><b>Learning next</b>FreeRTOS, OTA updates, TinyML</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <div class="wrap">
     <h2>Projects</h2>
@@ -293,7 +343,7 @@ section{scroll-margin-top:4rem}
 <section id="experience">
   <div class="wrap">
     <h2>Experience</h2>
-    <p class="intro">Four internships and a campus innovation role, moving from manufacturing to prototyping to IoT software.</p>
+    <p class="intro">Four industry internships, a virtual embedded program and a campus innovation role, moving from manufacturing to prototyping to IoT software.</p>
     <ol class="timeline">
       <li class="panel job">
         <img class="edu-logo" src="assets/aceglogo.jpg" alt="ACE Engineering College logo" width="68" height="68" loading="lazy" onerror="this.style.display='none'">
@@ -347,7 +397,7 @@ section{scroll-margin-top:4rem}
       <ul class="edu-list">
         <li><img class="edu-logo" src="assets/aceglogo.jpg" alt="ACE Engineering College logo" width="68" height="68" onerror="this.style.display='none'"><div><strong>B.Tech, Computer Science and Engineering (IoT)</strong><br>ACE Engineering College, Hyderabad<br>July 2025 – June 2028. CGPA 8.58 / 10 (lateral entry)</div></li>
         <li><img class="edu-logo" src="assets/mistlogo.jpg" alt="Mahaveer Institute of Science and Technology logo" width="68" height="68" onerror="this.style.display='none'"><div><strong>Diploma, Electronics and Communication Engineering</strong><br>Mahaveer Institute of Science and Technology<br>Aug 2022 – Apr 2025. CGPA 8.03 / 10</div></li>
-        <li><span class="edu-logo edu-txt" aria-hidden="true">SSC</span><div><strong>Secondary School Certificate</strong><br>MJPTBCWR Boys School, Musheerabad, Hyderabad<br>May 2018 – Apr 2022</div></li>
+        <li><img class="edu-logo" src="assets/mjp.jpg" alt="MJPTBCWR Boys School logo" width="68" height="68" loading="lazy" onerror="this.style.display='none'"><div><strong>Secondary School Certificate</strong><br>MJPTBCWR Boys School, Musheerabad, Hyderabad<br>May 2018 – Apr 2022</div></li>
       </ul>
     </div>
     <div class="panel">
@@ -369,13 +419,13 @@ section{scroll-margin-top:4rem}
   <div class="wrap">
     <h2>Contact</h2>
     <p>Looking for embedded, firmware or IIoT internships and part-time roles where I can ship on real hardware. Send me a project, a role, or a hardware problem.</p>
-    <p><a href="mailto:venkatamanohar@gmail.com">venkatamanohar@gmail.com</a></p>
+    <p><a href="mailto:venkatamanoharan7@gmail.com">venkatamanoharan7@gmail.com</a></p>
     <p><a href="https://github.com/Venkatamanohar369" target="_blank" rel="noopener">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/venkata-manohar-goplar/" target="_blank" rel="noopener">LinkedIn</a></p>
     <div class="btns" style="margin-top:1.2rem"><details class="mailmenu up"><summary class="btn fill">Email me</summary><div class="menu">
-        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=venkatamanohar@gmail.com&amp;su=Hello%20Manohar" target="_blank" rel="noopener">Open in Gmail</a>
-        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=venkatamanohar@gmail.com&amp;subject=Hello%20Manohar" target="_blank" rel="noopener">Open in Outlook</a>
-        <a href="mailto:venkatamanohar@gmail.com?subject=Hello%20Manohar">Default mail app</a>
-        <button type="button" data-copy="venkatamanohar@gmail.com">Copy address</button></div></details><a class="btn" href="resume.pdf" download>Download resume</a></div>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=venkatamanoharan7@gmail.com&amp;su=Hello%20Manohar" target="_blank" rel="noopener">Open in Gmail</a>
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=venkatamanoharan7@gmail.com&amp;subject=Hello%20Manohar" target="_blank" rel="noopener">Open in Outlook</a>
+        <a href="mailto:venkatamanoharan7@gmail.com?subject=Hello%20Manohar">Default mail app</a>
+        <button type="button" data-copy="venkatamanoharan7@gmail.com">Copy address</button></div></details><a class="btn" href="resume.pdf" download>Download resume</a></div>
     <p class="copy"><small>Hyderabad, Telangana, India &nbsp;·&nbsp; © 2026 Venkata Manohar Goplar</small></p>
   </div>
 </footer>
@@ -399,12 +449,46 @@ section{scroll-margin-top:4rem}
 /* Sticky nav and scroll reveal */
 (function(){
   var st=document.getElementById('stick');
-  function chk(){st.classList.toggle('on',window.scrollY>420);}
+  var pg=document.getElementById('prog');
+  function chk(){st.classList.toggle('on',window.scrollY>420);var h=document.documentElement.scrollHeight-window.innerHeight;if(pg)pg.style.width=(h>0?window.scrollY/h*100:0)+'%';}
   window.addEventListener('scroll',chk,{passive:true});chk();
   if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var els=document.querySelectorAll('.panel');
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
   els.forEach(function(e){e.classList.add('rv');io.observe(e);});
+})();
+
+/* About: pick the layout from the image's real shape */
+(function(){
+  var box=document.querySelector('.about'),im=box&&box.querySelector('img');
+  if(!im)return;
+  function shape(){var r=im.naturalWidth/im.naturalHeight;box.setAttribute('data-shape',r>=1.25?'landscape':(r>=.85?'square':'portrait'));}
+  if(im.complete){if(im.naturalWidth)shape();else box.classList.add('noimg');}
+  else{im.addEventListener('load',shape);im.addEventListener('error',function(){box.classList.add('noimg');});}
+})();
+
+/* Active link in the sticky nav */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var links=document.querySelectorAll('.stick nav a'),map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){
+    if(x.isIntersecting){links.forEach(function(a){a.classList.remove('act');});var a=map[x.target.id];if(a)a.classList.add('act');}
+  });},{rootMargin:'-35% 0px -60% 0px'});
+  document.querySelectorAll('main section, footer').forEach(function(e){if(map[e.id])io.observe(e);});
+})();
+
+/* Count-up for the highlight numbers */
+(function(){
+  var els=document.querySelectorAll('.stats b');
+  if(!els.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){
+    if(!x.isIntersecting)return;io.unobserve(x.target);
+    var el=x.target,txt=el.textContent,end=parseFloat(txt),d=(txt.split('.')[1]||'').length,t0=null;
+    function step(t){if(t0===null)t0=t;var p=Math.min(1,(t-t0)/1000),e=1-Math.pow(1-p,3);el.textContent=(end*e).toFixed(d);if(p<1)requestAnimationFrame(step);else el.textContent=txt;}
+    requestAnimationFrame(step);
+  });},{threshold:.6});
+  els.forEach(function(e){io.observe(e);});
 })();
 
 /* Email menu: close on outside click or Escape, copy address */
@@ -430,7 +514,7 @@ section{scroll-margin-top:4rem}
   try{r=new T.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}
   r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   var scene=new T.Scene(),cam=new T.PerspectiveCamera(34,1,.1,100);
-  cam.position.set(0,6.2,11.5);cam.lookAt(0,.4,0);
+  cam.position.set(0,7,14.5);cam.lookAt(0,.5,0);
   scene.add(new T.AmbientLight(0xb9a4f2,.7));
   var key=new T.DirectionalLight(0xffffff,1.15);key.position.set(5,9,6);scene.add(key);
   var glow=new T.PointLight(0x8b5cf6,2.4,34);glow.position.set(-6,3,3);scene.add(glow);
@@ -442,8 +526,14 @@ section{scroll-margin-top:4rem}
   for(i=-11;i<=11;i++)for(j=-11;j<=11;j++){var px=i*gap,pz=j*gap;if(Math.sqrt(px*px+pz*pz)<4.15)pts.push([px,pz]);}
   var im=new T.InstancedMesh(new T.BoxGeometry(s,.07,s),new T.MeshStandardMaterial({metalness:.7,roughness:.25}),pts.length);
   var o=new T.Object3D(),col=new T.Color(),shades=[0x6d3fd1,0x8b5cf6,0xa78bfa,0x5b2fb8,0xc4b5fd];
-  pts.forEach(function(p,k){o.position.set(p[0],.13,p[1]);o.updateMatrix();im.setMatrixAt(k,o.matrix);im.setColorAt(k,col.setHex(shades[Math.floor(Math.random()*shades.length)]));});
+  var base=[],dist=[],hi=new T.Color(0xffffff);
+  pts.forEach(function(p,k){o.position.set(p[0],.13,p[1]);o.updateMatrix();im.setMatrixAt(k,o.matrix);var c=new T.Color(shades[Math.floor(Math.random()*shades.length)]);base.push(c);dist.push(Math.sqrt(p[0]*p[0]+p[1]*p[1]));im.setColorAt(k,c);});
   im.instanceColor.needsUpdate=true;g.add(im);
+  var ring=new T.Mesh(new T.TorusGeometry(4.62,.05,12,128),new T.MeshBasicMaterial({color:0xc4b5fd}));ring.rotation.x=Math.PI/2;ring.position.y=.1;g.add(ring);
+  var hc=document.createElement('canvas');hc.width=hc.height=256;var hx=hc.getContext('2d'),gr=hx.createRadialGradient(128,128,10,128,128,128);
+  gr.addColorStop(0,'rgba(139,92,246,.55)');gr.addColorStop(1,'rgba(139,92,246,0)');hx.fillStyle=gr;hx.fillRect(0,0,256,256);
+  var halo=new T.Mesh(new T.PlaneGeometry(11,11),new T.MeshBasicMaterial({map:new T.CanvasTexture(hc),transparent:true,depthWrite:false,blending:T.AdditiveBlending}));
+  halo.rotation.x=-Math.PI/2;halo.position.y=-.4;scene.add(halo);
 
   var chip=new T.Group();
   chip.add(new T.Mesh(new T.BoxGeometry(2.2,.36,2.2),new T.MeshStandardMaterial({color:0xf3eeff,metalness:.3,roughness:.35})));
@@ -466,16 +556,18 @@ section{scroll-margin-top:4rem}
   if(document.fonts&&document.fonts.load){document.fonts.load('800 188px Sora','VMG').then(paint);}
   chip.position.y=1.5;scene.add(chip);
 
-  var mx=0,my=0,tx=0,ty=0,run=true,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var t0=null,mx=0,my=0,tx=0,ty=0,run=true,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;});
-  function size(){var w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  function size(){var w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;var k=Math.max(1,1.15/cam.aspect);cam.position.set(0,7*k,14.5*k);cam.lookAt(0,.5,0);cam.updateProjectionMatrix();}
   window.addEventListener('resize',function(){size();if(still)r.render(scene,cam);});
   size();
   function frame(tm){
     if(run&&!still)requestAnimationFrame(frame);
     tx+=(mx*.5-tx)*.05;ty+=(my*.25-ty)*.05;
-    g.rotation.y+=.0025;g.rotation.x=.12+ty;g.position.x=tx*.8;
+    g.rotation.y+=.0016;g.rotation.x=.12+ty;g.position.x=tx*.8;
     chip.position.x=g.position.x;chip.rotation.x=g.rotation.x;chip.position.y=1.5+Math.sin(tm*.0014)*.1;chip.rotation.y=Math.sin(tm*.0006)*.3;
+    if(t0===null)t0=tm;var f=Math.min(1,(tm-t0)/1600),e=1-Math.pow(1-f,3);g.scale.setScalar(.7+.3*e);chip.scale.setScalar(.6+.4*e);
+    if(!still){var front=((tm-t0)*.0019)%6.5;for(var k=0;k<base.length;k++){var v=Math.max(0,1-Math.abs(dist[k]-front)/1.1);col.copy(base[k]).lerp(hi,v*.8);im.setColorAt(k,col);}im.instanceColor.needsUpdate=true;}
     r.render(scene,cam);
   }
   if('IntersectionObserver' in window){
